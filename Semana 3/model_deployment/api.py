@@ -2,8 +2,7 @@
 from flask import Flask
 from flask_restx import Api, Resource, fields
 import joblib
-from xx_model_deployment import pred_car_price
-#from model_deployment.xx_model_deployment import pred_car_price
+from cp_model_deployment import pred_car_price
 
 app = Flask(__name__)
 
@@ -66,7 +65,7 @@ class CarPriceApi(Resource):
         args = parser.parse_args()
 
         return {
-         "result": pred_car_price(args['Year'],args['Mileage'],args['Make'],args['Make'],args['Model'])
+         "result": pred_car_price(args['Year'],args['Mileage'],args['State'],args['Make'],args['Model'])
         }, 200
 
 if __name__ == '__main__':

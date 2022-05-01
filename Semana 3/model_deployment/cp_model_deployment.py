@@ -20,6 +20,7 @@ def pred_car_price(year, mileage, state, make, model):
 
     return p1
 
+'''
 if __name__ == "__main__":
     
     if len(sys.argv) == 1:
@@ -29,3 +30,4 @@ if __name__ == "__main__":
         p1 = pred_car_price(car_info)
         print(car_info)
         print('Car Price: ', p1)
+'''
