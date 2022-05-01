@@ -13,7 +13,7 @@ def pred_car_price(year, mileage, state, make, model):
     car_info = pd.DataFrame(car_info, columns=['Year', 'Mileage', 'State', 'Make', 'Model'])#.to_numpy()
     
     # Model train
-    regressor = joblib.load(os.path.dirname(__file__) + '/car_price.pkl') 
+    regressor = joblib.load(os.path.dirname(__file__) + '/car_price_final.pkl') 
 
     # Make prediction
     p1 = regressor.predict(car_info)
