@@ -7,10 +7,10 @@ import os
 
 def predict_proba(url):
 
-    clf = joblib.load(os.path.dirname(__file__) + '/phishing_clf.pkl') 
+    clf = joblib.load(os.path.dirname(__file__) + '/phishing_clf.pkl')
 
     url_ = pd.DataFrame([url], columns=['url'])
-  
+
     # Create features
     keywords = ['https', 'login', '.php', '.html', '@', 'sign']
     for keyword in keywords:
@@ -27,18 +27,15 @@ def predict_proba(url):
 
     return p1
 
-
 if __name__ == "__main__":
     
     if len(sys.argv) == 1:
         print('Please add an URL')
         
     else:
-
         url = sys.argv[1]
 
         p1 = predict_proba(url)
-        
+
         print(url)
         print('Probability of Phishing: ', p1)
-        

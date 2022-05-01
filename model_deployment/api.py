@@ -12,16 +12,16 @@ api = Api(
     title='Phishing Prediction API',
     description='Phishing Prediction API')
 
-ns = api.namespace('predict', 
+ns = api.namespace('predict',
      description='Phishing Classifier')
-   
+
 parser = api.parser()
 
 parser.add_argument(
-    'URL', 
-    type=str, 
+    'URL',
+    type=str,
     required=True, 
-    help='URL to be analyzed', 
+    help='URL to be analyzed',
     location='args')
 
 resource_fields = api.model('Resource', {
@@ -35,11 +35,10 @@ class PhishingApi(Resource):
     @api.marshal_with(resource_fields)
     def get(self):
         args = parser.parse_args()
-        
+
         return {
          "result": predict_proba(args['URL'])
         }, 200
-    
-    
+
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False, host='0.0.0.0', port=8888)
