@@ -10,7 +10,7 @@ def pred_car_price(year, mileage, state, make, model):
 
     # Features
     car_info = [(year, mileage, state, make, model)]
-    car_info = pd.DataFrame(car_info, columns=['Year', 'Mileage', 'State', 'Make', 'Model']).to_numpy()
+    car_info = pd.DataFrame(car_info, columns=['Year', 'Mileage', 'State', 'Make', 'Model'])#.to_numpy()
     
     # Model train
     regressor = joblib.load(os.path.dirname(__file__) + '/car_price.pkl') 
